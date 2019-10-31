@@ -29,6 +29,11 @@ class TestAccelerate(TestCar):
             self.car.accelerate()
           self.assertEqual(self.car.speed, 15)
 
+      def  test_max_speed(self):
+          for _ in range(50):
+              self.car.accelerate()
+          self.assertEqual(self.car.speed, 120)
+
 
 class TestBrake(TestCar):
        def test_brake_once(self):

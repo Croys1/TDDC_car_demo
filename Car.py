@@ -9,7 +9,10 @@ class Car:
         print("I'm going {} kph!".format(self.speed))
 
     def accelerate(self):
-        self.speed += 5
+        if self.speed != 120:
+            self.speed += 5
+        else:
+            pass
 
     def brake(self):
         if self.speed < 5:
