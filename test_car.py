@@ -18,6 +18,8 @@ class TestInit(TestCar):
       def test_initial_time(self):
           self.assertEqual(self.car.time, 0)
 
+      def test_initial_direction(self):
+          self.assertEqual(self.car.direction, 'N')
 
 class TestAccelerate(TestCar):
       def test_accelerate_from_zero(self):
@@ -56,3 +58,28 @@ class TestBrake(TestCar):
            for _ in range(3):
                self.car.brake()
            self.assertEqual(self.car.speed, 0)
+
+
+class TestTurning(TestCar):
+
+    def test_turn_left(self):
+        self.car.turn_left()
+        self.assertEqual(self.car.direction, 'W')
+
+    def test_turn_right(self):
+        self.car.turn_right()
+        self.assertEqual(self.car.direction, 'S')
+
+    def test_multiple_turns(self):
+        self.car.turn_left()
+        self.car.turn_left()
+        self.car.turn_right()
+        self.car.turn_left()
+        self.car.turn_right()
+        self.car.turn_right()
+        self.car.turn_right()
+        self.car.turn_left()
+        self.assertEqual(self.car.direction, 'N')
+
+
+
